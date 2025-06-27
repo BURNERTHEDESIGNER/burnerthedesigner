@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Name – Minimalist Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="centered">
+    <h1>Your Name</h1>
+    <p class="subtitle">Minimalist Design. Maximum Impact.</p>
+    <p>A selection of my work and a way to contact me directly.</p>
+    <div class="actions">
+      <a href="gallery.html" class="button">See My Work</a>
+      <button class="button" id="contactBtn">Contact</button>
+    </div>
+  </main>
+
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="button">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="contact.js"></script>
+</body>
+</html>
