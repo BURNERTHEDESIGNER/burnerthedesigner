@@ -1,17 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Your Name – Minimalist Portfolio</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>burnerthedesigner</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    main {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .button {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      position: relative;
+    }
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <main class="centered">
-    <h1>Your Name</h1>
-    <p class="subtitle">Minimalist Design. Maximum Impact.</p>
-    <p>A selection of my work and a way to contact me directly.</p>
-    <div class="actions">
+  <main>
+    <h1>burnerthedesigner</h1>
+    <p class="subtitle">Minimalist design. Maximum weirdness.</p>
+    <p>A selection of my work and a way to reach me directly.</p>
+    <div>
       <a href="gallery.html" class="button">See My Work</a>
       <button class="button" id="contactBtn">Contact</button>
     </div>
@@ -22,14 +97,39 @@
       <span class="close" id="closeModal">&times;</span>
       <h2>Contact Me</h2>
       <form id="contactForm">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit" class="button">Send</button>
       </form>
     </div>
   </div>
 
-  <script src="contact.js"></script>
+  <script>
+    const contactBtn = document.getElementById('contactBtn');
+    const contactModal = document.getElementById('contactModal');
+    const closeModal = document.getElementById('closeModal');
+
+    contactBtn.addEventListener('click', () => {
+      contactModal.style.display = 'block';
+    });
+
+    closeModal.addEventListener('click', () => {
+      contactModal.style.display = 'none';
+    });
+
+    window.onclick = (e) => {
+      if (e.target == contactModal) {
+        contactModal.style.display = 'none';
+      }
+    };
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Message sent (not really, but you look good today)');
+      contactModal.style.display = 'none';
+      this.reset();
+    });
+  </script>
 </body>
 </html>
